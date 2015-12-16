@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DelayTest</string>
+    <string name="image_zhihu">Image : Zhihu</string>
+    <string name="image_view">image view</string>
+</resources>
