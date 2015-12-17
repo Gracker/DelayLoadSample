@@ -34,18 +34,19 @@ public class MainActivity extends AppCompatActivity {
         imageHeight = (TextView) findViewById(R.id.img_height_txt);
 
         //  第一种写法:直接Post
-        myHandler.post(mLoadingRunnable);
+//        myHandler.post(mLoadingRunnable);
 
 //  第二种写法:直接PostDelay 300ms.
 //  myHandler.postDelayed(mLoadingRunnable, DEALY_TIME);
 
-//  第三种写法:优化的DelayLoad
-//  getWindow().getDecorView().post(new Runnable() {
-//    @Override
-//    public void run() {
-//      myHandler.post(mLoadingRunnable);
-//    }
-//  });
+//        第三种写法:
+//        优化的DelayLoad
+        getWindow().getDecorView().post(new Runnable() {
+            @Override
+            public void run() {
+                myHandler.post(mLoadingRunnable);
+            }
+        });
     }
 
     private void updateText() {
