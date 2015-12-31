@@ -10,9 +10,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private static final int DEALY_TIME = 300;
 
-    private ImageView zhihuImage;
-    private TextView imageWidth;
-    private TextView imageHeight;
+    private ImageView zhihuImg;
+    private TextView imageWidthTxt;
+    private TextView imageHeightTxt;
 
     private Handler myHandler = new Handler();
     private Runnable mLoadingRunnable = new Runnable() {
@@ -28,19 +28,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        zhihuImage = (ImageView) findViewById(R.id.zhihu_img);
+        zhihuImg = (ImageView) findViewById(R.id.zhihu_img);
 
-        imageWidth = (TextView) findViewById(R.id.img_width_txt);
-        imageHeight = (TextView) findViewById(R.id.img_height_txt);
+        imageWidthTxt = (TextView) findViewById(R.id.img_width_txt);
+        imageHeightTxt = (TextView) findViewById(R.id.img_height_txt);
 
-        //  第一种写法:直接Post
-//        myHandler.post(mLoadingRunnable);
+//      第一种写法:直接Post
+//      myHandler.post(mLoadingRunnable);
 
-//  第二种写法:直接PostDelay 300ms.
-//  myHandler.postDelayed(mLoadingRunnable, DEALY_TIME);
+//      第二种写法:直接PostDelay 300ms.
+//      myHandler.postDelayed(mLoadingRunnable, DEALY_TIME);
 
-//        第三种写法:
-//        优化的DelayLoad
+//      第三种写法:
+//      优化的DelayLoad
         getWindow().getDecorView().post(new Runnable() {
             @Override
             public void run() {
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateText() {
         TraceCompat.beginSection("updateText");
-        imageWidth.setText("image : w=" + zhihuImage.getWidth());
-        imageHeight.setText("image : h=" + zhihuImage.getWidth());
+        imageWidthTxt.setText("image : w=" + zhihuImg.getWidth());
+        imageHeightTxt.setText("image : h=" + zhihuImg.getWidth());
         TraceCompat.endSection();
     }
 }
