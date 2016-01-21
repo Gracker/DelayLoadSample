@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int DEALY_TIME = 300;
+    private static final int DELAY_TIME = 300;
 
     private ImageView zhihuImg;
     private TextView imageWidthTxt;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //      myHandler.post(mLoadingRunnable);
 
 //      第二种写法:直接PostDelay 300ms.
-//      myHandler.postDelayed(mLoadingRunnable, DEALY_TIME);
+//      myHandler.postDelayed(mLoadingRunnable, DELAY_TIME);
 
 //      第三种写法:
 //      优化的DelayLoad
