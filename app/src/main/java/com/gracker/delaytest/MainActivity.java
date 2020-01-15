@@ -2,6 +2,8 @@ package com.gracker.delaytest;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,12 +44,24 @@ public class MainActivity extends AppCompatActivity {
 
 //      第三种写法:
 //      优化的DelayLoad
-        getWindow().getDecorView().post(new Runnable() {
+//        getWindow().getDecorView().post(new Runnable() {
+//            @Override
+//            public void run() {
+//                myHandler.post(mLoadingRunnable);
+//            }
+//        });
+
+
+        //第四种写法
+        // 利用 IdleHandler
+        MessageQueue.IdleHandler idleHandler = new MessageQueue.IdleHandler() {
             @Override
-            public void run() {
-                myHandler.post(mLoadingRunnable);
+            public boolean queueIdle() {
+                updateText();
+                return false;
             }
-        });
+        };
+        Looper.myQueue().addIdleHandler(idleHandler);
     }
 
     private void updateText() {
