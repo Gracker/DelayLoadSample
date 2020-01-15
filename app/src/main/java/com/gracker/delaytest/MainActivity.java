@@ -1,11 +1,12 @@
 package com.gracker.delaytest;
 
-import android.os.Handler;
-import android.support.v4.os.TraceCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.TraceCompat;
 
 public class MainActivity extends AppCompatActivity {
     private static final int DELAY_TIME = 300;
@@ -28,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        zhihuImg = (ImageView) findViewById(R.id.zhihu_img);
+        zhihuImg = findViewById(R.id.zhihu_img);
 
-        imageWidthTxt = (TextView) findViewById(R.id.img_width_txt);
-        imageHeightTxt = (TextView) findViewById(R.id.img_height_txt);
+        imageWidthTxt = findViewById(R.id.img_width_txt);
+        imageHeightTxt = findViewById(R.id.img_height_txt);
 
 //      第一种写法:直接Post
 //      myHandler.post(mLoadingRunnable);
