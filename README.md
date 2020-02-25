@@ -18,7 +18,7 @@ myHandler.post(mLoadingRunnable);
 myHandler.postDelayed(mLoadingRunnable, DELAY_TIME);
 ```
 
-## 第三种写法:
+## 第三种写法: 优化的 PostDelay ，两次进行 Delay Load
 ```java
 getWindow().getDecorView().post(new Runnable() {
     @Override
@@ -28,7 +28,7 @@ getWindow().getDecorView().post(new Runnable() {
 });
 ```
 
-## 第四种写法
+## 第四种写法（推荐）：使用 IdleHandler 进行 Delay Load
 ```java
 // 利用 IdleHandler
 MessageQueue.IdleHandler idleHandler = new MessageQueue.IdleHandler() {
